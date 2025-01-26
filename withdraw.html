@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdrawal</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 18px; /* Small font size for heading */
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .withdrawal-form label {
+            font-size: 12px; /* Small font size for labels */
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .withdrawal-form input,
+        .withdrawal-form select {
+            font-size: 14px; /* Small font size for input fields */
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .withdrawal-form button {
+            font-size: 14px; /* Small font size for buttons */
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .withdrawal-form button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: #ff0000;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: #28a745;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .balance {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Withdrawal Request</h2>
+        
+        <!-- Wallet Balance Display -->
+        <div class="balance" id="wallet-balance">
+            Wallet Balance: <strong>$0.00</strong>
+        </div>
+
+        <form class="withdrawal-form" id="withdrawalForm">
+            <label for="withdrawal-amount">Amount to Withdraw ($)</label>
+            <input type="number" id="withdrawal-amount" name="withdrawal-amount" placeholder="Enter amount" required>
+
+            <label for="withdrawal-method">Withdrawal Method</label>
+            <select id="withdrawal-method" name="withdrawal-method" required>
+                <option value="usd">USD</option>
+                <option value="litecoin">Litecoin</option>
+                <option value="usdt">USDT</option>
+            </select>
+
+            <label for="wallet-address">Enter Wallet Address</label>
+            <input type="text" id="wallet-address" name="wallet-address" placeholder="Enter your wallet address" required>
+
+            <label for="account-password">Account Password</label>
+            <input type="password" id="account-password" name="account-password" placeholder="Enter your account password" required>
+
+            <button type="submit">Submit Withdrawal</button>
+
+            <div class="error" id="error-message" style="display: none;"></div>
+            <div class="success" id="success-message" style="display: none;">Withdrawal request successful!</div>
+        </form>
+    </div>
+
+    <script>
+        // Simulated backend data (Replace with actual data from your backend)
+        const walletBalance = 100.00;  // Placeholder for actual wallet balance (from backend)
+        
+        // Display wallet balance (This would be dynamically fetched from the backend)
+        document.getElementById('wallet-balance').innerHTML = `Wallet Balance: <strong>$${walletBalance.toFixed(2)}</strong>`;
+
+        document.getElementById('withdrawalForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get user input
+            const amount = parseFloat(document.getElementById('withdrawal-amount').value);
+            const method = document.getElementById('withdrawal-method').value;
+            const walletAddress = document.getElementById('wallet-address').value;
+            const accountPassword = document.getElementById('account-password').value;
+
+            // Placeholder for backend password verification
+            const correctPassword = "userpassword";  // Replace with real password from backend
+
+            // Validate account password
+            if (accountPassword !== correctPassword) {
+                document.getElementById('error-message').textContent = "Incorrect account password.";
+                document.getElementById('error-message').style.display = "block";
+                return;
+            }
+
+            // Check if withdrawal amount is valid
+            if (isNaN(amount) || amount < 1) {
+                document.getElementById('error-message').textContent = "Minimum withdrawal amount is $1.";
+                document.getElementById('error-message').style.display = "block";
+                return;
+            }
+
+            // Check if withdrawal amount exceeds wallet balance
+            if (amount > walletBalance) {
+                document.getElementById('error-message').textContent = "Insufficient balance.";
+                document.getElementById('error-message').style.display = "block";
+                return;
+            }
+
+            // Success message after validation (backend integration will handle actual withdrawal)
+            document.getElementById('error-message').style.display = "none";
+            document.getElementById('success-message').style.display = "block";
+
+            // Placeholder: Call backend function to process the withdrawal
+            console.log(`Withdrawal request: $${amount} via ${method}, Wallet Address: ${walletAddress}`);
+        });
+    </script>
+
+</body>
+</html>

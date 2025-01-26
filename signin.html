@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Inwealth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            color: #333;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .redirect {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .redirect a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .redirect a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign In</h2>
+        <form id="signin-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="error" id="error-message"></div>
+
+            <input type="submit" value="Sign In">
+        </form>
+        <div class="redirect">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signin-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === "" || password === "") {
+                document.getElementById('error-message').textContent = "Both fields are required.";
+                return;
+            }
+
+            // Clear any previous error message
+            document.getElementById('error-message').textContent = "";
+
+            // Call backend API to check if user exists and validate credentials
+            fetch('/api/login', { // Make sure the backend endpoint matches
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // If the login is successful, redirect to the dashboard
+                    alert("Signed in successfully! Redirecting to dashboard...");
+                    window.location.href = "dashboard.html";  // Redirect to dashboard
+                } else {
+                    // If login fails (incorrect username/password or user doesn't exist)
+                    document.getElementById('error-message').textContent = data.message || "Invalid credentials.";
+                }
+            })
+            .catch(error => {
+                // Handle any error with the API request
+                console.error('Error:', error);
+                document.getElementById('error-message').textContent = "An error occurred. Please try again.";
+            });
+        });
+    </script>
+</body>
+</html>
