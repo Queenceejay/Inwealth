@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inwealth - Dashboard</title>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .wallet-section {
+            background: #222;
+            padding: 15px;
+            border-radius: 8px;
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        .wallet-section p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .wallet-section h3 {
+            font-size: 22px;
+            color: #4CAF50;
+            margin-top: 5px;
+        }
+
+        .ad-container {
+            background: #333;
+            width: 90%;
+            margin: 10px auto;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .earnings {
+            font-size: 14px;
+            margin: 15px auto;
+            width: 90%;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #222;
+            padding: 10px 0;
+        }
+
+        .bottom-nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .bottom-nav li {
+            text-align: center;
+        }
+
+        .bottom-nav a {
+            color: white;
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .bottom-nav i {
+            font-size: 20px;
+            margin-bottom: 3px;
+            color: #4CAF50; /* Green Icons */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Inwealth Dashboard</h2>
+    </header>
+
+    <main>
+        <!-- Wallet Balance (Dynamic from Flask) -->
+        <section class="wallet-section">
+            <p>Wallet Balance:</p>
+            <h3>${{ wallet_balance }}</h3> <!-- Flask will insert the real balance -->
+        </section>
+
+        <!-- Ad Placement -->
+        <div class="ad-container">
+            <p>Ad Space</p> <!-- Insert ad script here -->
+        </div>
+
+        <!-- Other Content -->
+        <section class="earnings">
+            <h3>Your Earnings</h3>
+            <p>Complete tasks and watch ads to earn more.</p>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation Menu -->
+    <footer class="bottom-nav">
+        <ul>
+            <li><a href="{{ url_for('wallet') }}"><i class="fas fa-wallet"></i><br>Wallet</a></li>
+            <li><a href="{{ url_for('withdraw') }}"><i class="fas fa-money-bill-wave"></i><br>Withdraw</a></li>
+            <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i><br>Profile</a></li>
+            <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i><br>Logout</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

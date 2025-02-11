@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged Out - Inwealth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .logout-container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 11px;
+            color: #ccc;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 10px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #ccc;
+        }
+        .deactivate-btn {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h2>Thank You for Being a Part of Inwealth!</h2>
+        <p>Your journey doesn't end here. We appreciate you and hope to see you again soon.</p>
+        
+        <div class="logout-options">
+            <a href="{{ url_for('signin') }}" class="btn">Sign In Again</a>
+            <a href="{{ url_for('deactivate') }}" class="btn deactivate-btn">Deactivate Account</a>
+        </div>
+    </div>
+</body>
+</html>

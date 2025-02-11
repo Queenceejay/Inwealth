@@ -1,0 +1,134 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 14px; /* Smaller text */
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background: black;
+    border-bottom: 1px solid #333;
+}
+
+.logo h1 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Get Started Button */
+.cta-btn {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-btn:hover {
+    background: #ddd;
+}
+
+/* About Section */
+.about {
+    padding: 40px 10%;
+    text-align: center;
+}
+
+/* Services Section */
+.services {
+    padding: 40px 10%;
+    text-align: center;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service {
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 40px 10%;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 15px 10%;
+    background: black;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+}
+
+.socials img {
+    width: 40px; /* Standard size */
+    height: 40px;
+}
+

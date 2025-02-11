@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inwealth - Earn with Ease</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Monetag Ad Code -->
+    <meta name="monetag" content="d9fe1be28d509b12b5d24e568393a402">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Inwealth</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="{{ url_for('signup') }}" class="sign-up-btn">Sign Up</a></li> <!-- Flask route fixed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Welcome to Inwealth</h2>
+        <p>Unlock new earning opportunities with Inwealth. We make earning easy and accessible for everyone.</p>
+        <a href="{{ url_for('signup') }}" class="cta-btn">Get Started</a> <!-- Flask route fixed -->
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h3>About Us</h3>
+        <p>We are committed to creating simple, reliable, and profitable ways for you to earn online.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h3>Our Services</h3>
+        <div class="service-container">
+            <div class="service">
+                <h4>Online Earnings</h4>
+                <p>We offer various online earning opportunities tailored for you.</p>
+            </div>
+            <div class="service">
+                <h4>Affiliate Programs</h4>
+                <p>Join our affiliate program and earn commissions from referrals.</p>
+            </div>
+            <div class="service">
+                <h4>Financial Growth</h4>
+                <p>We provide strategies to help you grow and manage your earnings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h3>Contact Us</h3>
+        <p>Have questions? We’re here to help. Reach out to us anytime.</p>
+        <a href="mailto:queenceejay183@gmail.com" class="cta-btn">Email Us</a>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+    <p>&copy; 2025 Inwealth</p>
+    <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61572261320387" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="50" height="50">
+        </a>
+        <a href="https://youtube.com/@queens-h1b?si=_e0liFwaKPyDbS4y" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" width="100" height="100">
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>
+

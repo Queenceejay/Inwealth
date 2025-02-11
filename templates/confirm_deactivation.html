@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Deactivation - Inwealth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: small;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        h2 {
+            color: red;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .btn, .danger-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: white;
+            color: black;
+        }
+
+        .danger-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .danger-btn:hover {
+            background-color: darkred;
+        }
+
+        .btn:hover {
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Confirm Account Deactivation</h2>
+        <p>Are you sure you want to deactivate your account? This action cannot be undone.</p>
+
+        <!-- Functional Deactivation Button -->
+        <form action="{{ url_for('account_deactivated') }}" method="post">
+            <button type="submit" class="danger-btn">Yes, Deactivate</button>
+        </form>
+
+        <!-- Cancel Button (Back to Dashboard) -->
+        <a href="{{ url_for('dashboard') }}" class="btn">No, Keep My Account</a>
+    </div>
+</body>
+</html>

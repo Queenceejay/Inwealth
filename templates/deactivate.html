@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deactivate Account - Inwealth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .deactivate-container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        h2 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 11px;
+            color: #ccc;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 10px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #ccc;
+        }
+        .deactivate-btn {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="deactivate-container">
+        <h2>Are You Sure You Want to Deactivate Your Account?</h2>
+        <p>Deactivating your account will remove all your data permanently. This action cannot be undone.</p>
+        
+        <div class="deactivate-option"
+            <a href="{{ url_for('confirm_deactivation') }}" class="btn deactivate-btn">Yes, Deactivate</a>
+        </div>
+    </div>
+</body>
+</html>

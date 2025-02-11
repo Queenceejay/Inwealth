@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Update Profile</h2>
+        {% if message %}
+        <div class="success-message">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+        <form action="{{ url_for('update_profile') }}" method="POST">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" value="{{ current_user.username }}" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" value="{{ current_user.email }}" required>
+            </div>
+            <div>
+                <label for="litecoin_address">Litecoin Address:</label>
+                <input type="text" name="litecoin_address" value="{{ current_user.litecoin_address }}">
+            </div>
+            <div>
+                <label for="usdt_address">USDT Address:</label>
+                <input type="text" name="usdt_address" value="{{ current_user.usdt_address }}">
+            </div>
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+</body>
+</html>
